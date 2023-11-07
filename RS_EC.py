@@ -11,6 +11,7 @@ class ecMeter():
         self.uart = serial.Serial(port=port, baudrate=9600, timeout=1.5)
 
     def read(self):
+        self.uart.reset_input_buffer()
 
         # read sensor
         self.tries = 3
@@ -58,16 +59,21 @@ class ecMeter():
                 self.lowUnit = "F"
 
         #decode upper display value
-        if not self.msg[11] == '\x19':
-            self.upValue = (float(self.msg[11:15]) / pow(10, int(self.msg[6]))) * self.pUp
+        if self.msg[11] == '\x19':
+            self.upValue = float('nan') # value to low
+        elif self.msg[11] == '\x18':
+            self.upValue = float('nan') # value to high
         else:
-            self.upValue = float('nan')
+            self.upValue = (float(self.msg[11:15]) / pow(10, int(self.msg[6]))) * self.pUp
+            
 
         #decode lower display value
-        if not self.msg[7] == '\x19':
-            self.lowValue = (float(self.msg[ 7:11]) / pow(10, int(self.msg[5]))) * self.pLow
+        if self.msg[7] == '\x19':
+            self.lowValue = float('nan') # value to low
+        elif self.msg[7] == '\x18':
+            self.lowValue = float('nan') # value to high
         else:
-            self.lowValue = float('nan')
+            self.lowValue = (float(self.msg[ 7:11]) / pow(10, int(self.msg[5]))) * self.pLow
 
         # return decoded values
         return(dict(upValue = self.upValue, upUnit = self.upUnit, lowValue = self.lowValue, lowUnit = self.lowUnit))
