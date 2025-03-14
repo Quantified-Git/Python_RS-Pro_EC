@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "RS_EC"
+version = "0.0.1"
+authors = [
+  { name="Jochem van der Meulen ", email="info@quantified.eu" },
+]
+description = "Library for digital readout of the RS PRO 123.8777 Conductivity Meter."
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/Quantified-Git/Python_RS-Pro_EC"
+Issues  = "https://github.com/Quantified-Git/Python_RS-Pro_EC/issues"
