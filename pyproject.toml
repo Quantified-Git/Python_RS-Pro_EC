@@ -11,6 +11,7 @@ authors = [
 description = "Library for digital readout of the RS PRO 123.8777 Conductivity Meter."
 readme = "README.md"
 requires-python = ">=3.7"
+dependencies = ["pyserial"]
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
