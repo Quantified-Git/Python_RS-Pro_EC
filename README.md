@@ -37,7 +37,7 @@ Make sure you have the latest version of PyPA’s build installed:
 py -m pip install --upgrade build
 ```
 
-run this command from the same directory where pyproject.toml is located:
+Run this command from the same directory where pyproject.toml is located:
 ```console
 py -m build
 ```
