@@ -30,3 +30,14 @@ Make the following connections:
 
 An RS232 usb adapter is also necessary to use this cable with a modern computer.  
 Please note that a TTL UART usb adapter is not a proper substitute for a regular RS232 adapter.
+
+## Generate package
+Make sure you have the latest version of PyPA’s build installed:
+```console
+py -m pip install --upgrade build
+```
+
+run this command from the same directory where pyproject.toml is located:
+```console
+py -m build
+```
